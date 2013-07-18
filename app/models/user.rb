@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates_presence_of :password_hash
-<<<<<<< HEAD
-=======
 
   require 'bcrypt'
 
@@ -25,5 +23,4 @@ class User < ActiveRecord::Base
   def self.order_by_karma
   	# pending
   end
->>>>>>> user_n_sesh
 end
