@@ -1,0 +1,39 @@
+<div class="user_name">
+  <h1><%= @user.username %></h1>
+</div>
+
+<div class="user_bio">
+  Photo: <%= @user.photo %>
+  <br />
+  Description: <%= @user.description %>
+  <br />
+  User "photo" and "description" goes here!
+</div>
+<div class="user_content">
+  <div class="user_questions">
+    <h3>Questions:</h3>
+    <ul>
+    <% @user.questions.each do |question| %>
+      <li><%= question.title %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="user_answers">
+    <h3>Answers:</h3>
+    <ul>
+    <% @user.answers.each do |answer| %>
+      <li><%= answer.text %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="user_comments">
+    <h3>Comments:</h3>
+    <ul>
+    <% @user.comments.each do |comment| %>
+      <li><%= comment.text %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
