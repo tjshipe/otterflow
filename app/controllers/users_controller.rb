@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-	include UsersHelper
 
 	before_filter :authorize, except: [:index, :show]
 
