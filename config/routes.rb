@@ -1,5 +1,4 @@
 Otterflow::Application.routes.draw do
-<<<<<<< HEAD
   resources :questions do
     resources :answers, :except => [:show, :index]
   end
@@ -9,8 +8,7 @@ Otterflow::Application.routes.draw do
   resources :favorites, :only => [:create, :destroy] 
   resources :sessions, :only => [:create, :destroy]
   resources :votes, :only => [:create, :destroy] 
-=======
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -67,5 +65,5 @@ Otterflow::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
->>>>>>> user_n_sesh
+
 end
