@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	include UsersHelper
-	
+
 	before_filter :authorize, except: :index
 
 	def index
@@ -12,13 +12,12 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.find_by_username(params[:username])
-    if @user.password == params[:password]
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-      redirect_to root_url
-    end
+		@user = User.new(params[:user])
+		if @user.save
+			redirect_to root_url, notice: "You successfully created an account!"
+		else
+			render 'new', notice: "Error!"
+		end
 	end
 
 	def edit
