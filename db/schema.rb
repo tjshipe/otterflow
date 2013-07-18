@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
 
   create_table "answers", :force => true do |t|
     t.text     "text",                           :null => false
-    t.boolean  "chosen",      :default => false
+    t.boolean  "chosen?",     :default => false
     t.integer  "question_id"
     t.integer  "user_id"
     t.datetime "created_at",                     :null => false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
 
   create_table "users", :force => true do |t|
     t.string   "username",      :null => false
-    t.string   "password_hash"
+    t.string   "password_hash", :null => false
     t.text     "description"
     t.string   "photo"
     t.datetime "created_at",    :null => false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
   end
 
   create_table "votes", :force => true do |t|
-    t.boolean  "positive"
+    t.boolean  "positive?"
     t.integer  "voteable_id"
     t.string   "voteable_type"
     t.integer  "user_id"

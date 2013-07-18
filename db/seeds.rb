@@ -1,3 +1,4 @@
+
 10.times do
 	@user = User.create(username: Faker::Internet.email, password_hash: Faker::Lorem.words(num = 1))
 	5.times do
