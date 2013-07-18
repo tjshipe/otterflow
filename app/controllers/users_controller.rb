@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to root_url, notice: "You successfully created an account!"
 		else
-			render 'new', notice: "Error!"
+			render 'new', flash: "Error!"
 		end
 	end
 
@@ -30,8 +30,11 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		@user.update_attributes(params[:user])
-		redirect_to user_path(@user)
+		if @user.update_attributes(params[:user])
+		  redirect_to user_path(@user)
+    else
+      render :edit, flash: "Something went wrong!"
+    end
 	end
 
 	def destroy
