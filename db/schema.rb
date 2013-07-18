@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(:version => 20130717232455) do
 
   create_table "answers", :force => true do |t|
-    t.text     "text",                          :null => false
-    t.boolean  "chosen?",    :default => false
+    t.text     "text",                           :null => false
+    t.boolean  "chosen",      :default => false
+    t.integer  "question_id"
     t.integer  "user_id"
-    t.integer  "votable_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
   create_table "comments", :force => true do |t|
     t.text     "text"
     t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.integer  "user_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "favorites", :force => true do |t|
@@ -60,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
 
   create_table "users", :force => true do |t|
     t.string   "username",      :null => false
-    t.string   "password_hash", :null => false
+    t.string   "password_hash"
     t.text     "description"
     t.string   "photo"
     t.datetime "created_at",    :null => false
@@ -68,11 +69,12 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
   end
 
   create_table "votes", :force => true do |t|
-    t.boolean  "positive?"
-    t.integer  "question_id"
+    t.boolean  "positive"
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
