@@ -1,4 +1,4 @@
-require 'spec-helper'
+require 'spec_helper'
 
 describe Tag do
   it { should belong_to :question }
