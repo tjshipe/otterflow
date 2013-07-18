@@ -1,0 +1,17 @@
+<h1>Question</h1>
+<ul class='questionList'>
+	<% @category.questions.each do |question| %>
+	  <li class='questionListItem'>
+		  <div class='question'>
+				<%= link_to "#{question.title}", question_url(question) %><br>
+				<span class='details'><%= question.user.username%> | <%= question.created_at%></span>
+			</div>
+			<div class='categories'>
+        <% question.categories.each do |category| %>
+          <span class='category'><%= link_to category.text, category_url(category)%>
+          </span>
+        <% end %>
+			</div>
+		</li>
+	<% end %>
+</ul>
