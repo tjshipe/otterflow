@@ -14,7 +14,7 @@
     <h3>Questions:</h3>
     <ul>
     <% @user.questions.each do |question| %>
-      <li><%= question.title %></li>
+      <li><%= link_to "#{question.title}", question_path(question) %></li>
     <% end %>
     </ul>
   </div>
@@ -23,7 +23,7 @@
     <h3>Answers:</h3>
     <ul>
     <% @user.answers.each do |answer| %>
-      <li><%= answer.text %></li>
+      <li><%= link_to "#{answer.text}", question_path(answer.question) %></li>
     <% end %>
     </ul>
   </div>
@@ -32,7 +32,7 @@
     <h3>Comments:</h3>
     <ul>
     <% @user.comments.each do |comment| %>
-      <li><%= comment.text %></li>
+      <li><%= link_to "#{comment.text}", question_path(comment.commentable) %></li>
     <% end %>
     </ul>
   </div>
