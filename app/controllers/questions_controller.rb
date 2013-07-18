@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_filter :authenticate, :only => [:create, :update] #which page do we authenticate?
+  before_filter :authorize, :only => [:edit, :update]
 
   def index
     @questions = Question.all
@@ -13,15 +13,15 @@ class QuestionsController < ApplicationController
   def create
     @question.new(params[:question])
 
-    if @post.save
-      redirect_to #somehwere
+    if @question.save
+      redirect_to question_url(@question)
     else
       render :new
     end
   end
 
   def new
-    @post = Post.new
+    @question = Question.new
   end
 
   def edit
@@ -34,7 +34,18 @@ class QuestionsController < ApplicationController
     if @question.update_attributes(params[:question])
       redirect_to question_url(@question)
     else
-      render :edit # somewhere to fix unsuccessful edit
+      render :edit, flash: @question.errors.full_messages #does this work? we will see...
+
+    end
+  end
+
+  def destroy
+    question = Question.find(params[:id])
+    if question.answers.none?
+      question.destroy
+      redirect_to questions_url, notice: "You have successfully deleted your question."
+    else
+      redirect_to question_url(question), notice: "You are not allowed to delete questions that have been answered."
     end
   end
 end
