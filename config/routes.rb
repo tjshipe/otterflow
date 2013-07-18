@@ -5,6 +5,7 @@ Otterflow::Application.routes.draw do
   resources :users
   resources :categories
   resources :comments, :except => [:show, :index]
-  resources :favorites, :only => [:new, :create, :destroy] 
+  resources :favorites, :only => [:create, :destroy] 
   resources :sessions, :only => [:create, :destroy]
+  resources :votes, :only => [:create, :destroy] 
 end
