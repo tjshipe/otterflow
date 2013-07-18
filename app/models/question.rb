@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  attr_accessible :user_id, :title, :body
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable
   has_many :tags

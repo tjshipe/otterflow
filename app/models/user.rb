@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessible :username, :password_hash
   has_many :questions
   has_many :answers
   has_many :comments

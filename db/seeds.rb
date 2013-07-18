@@ -1,13 +1,15 @@
-
 10.times do
 	@user = User.create(username: Faker::Internet.email, password_hash: Faker::Lorem.words(num = 1))
 	5.times do
-	  @question = Question.create(user_id:@user.id, title: Faker::Company.catch_phrase, body: Faker::Lorem.sentences(sentence_count = 3))
+	  @user.questions << Question.create(title: Faker::Company.catch_phrase, body: Faker::Lorem.sentences(sentence_count = 3))
       3.times do
-		@answer = Answer.create(user_id:@user.id, text: Faker::Lorem.sentences(sentence_count = 3))
+        Answer.create(user_id:@user.id, text: Faker::Lorem.sentences(sentence_count = 3), question_id: (rand(50)+1))
       end	  
 	end
 end
+
+@answers = Answer.all
+@questions = Question.all
 
 20.times do
   @favorite = Favorite.create(user_id: (rand(10)+1), question_id: (rand(50)+1))
@@ -22,17 +24,25 @@ end
 end
 
 30.times do
-  @vote = Vote.create(is_positive: true, user_id: (rand(10)+1), question_id: (rand(50)+1))
+  @vote = Vote.create(positive: true, user_id: (rand(10)+1))
+  @vote.voteable = @questions.sample
+  @vote.save
 end
 
 30.times do
-  @vote = Vote.create(is_positive: true, user_id: (rand(10)+1), answer_id: (rand(150)+1))
+  @vote = Vote.create(positive: true, user_id: (rand(10)+1))
+  @vote.voteable = @answers.sample
+  @vote.save
 end
 
 20.times do
-	@comment = Comment.create(user_id: (rand(10)+1), text: Faker::Lorem.sentences(sentence_count = 2), question_id: (rand(50)+1))
+	@comment = Comment.create(user_id: (rand(10)+1), text: Faker::Lorem.sentences(sentence_count = 2))
+  @comment.commentable = @questions.sample
+  @comment.save
 end
 
 20.times do
-	@comment = Comment.create(user_id: (rand(10)+1), text: Faker::Lorem.sentences(sentence_count = 2), answer_id: (rand(50)+1))
+	@comment = Comment.create(user_id: (rand(10)+1), text: Faker::Lorem.sentences(sentence_count = 2))
+  @comment.commentable = @answers.sample
+  @comment.save
 end
