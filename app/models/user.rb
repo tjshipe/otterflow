@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
   has_many :favorites
+
+  validates_presence_of :username
+  validates_presence_of :password_hash
 end
