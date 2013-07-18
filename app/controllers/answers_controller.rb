@@ -2,7 +2,6 @@ class AnswersController < ApplicationController
 
   before_filter :authenticate #before creating/updating/destroying
   def new
-    @answer = Answer.new
   end
 
   def create

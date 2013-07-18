@@ -21,7 +21,7 @@
 </div>
 
 <div class="answers">
-	<%= link_to "Submit an Answer", new_question_answer_path(@question) %>
+	<%= render partial: 'answers/new' %>
 	<h3>Answers</h3>
 	<ul>
 		<% @question.answers.each do |answer| %>
