@@ -3,4 +3,5 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :voteable
   has_many :tags
   has_many :categories, through: :tags
+  belongs_to :user
 end
