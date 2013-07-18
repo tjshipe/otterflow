@@ -1,0 +1,49 @@
+<div class="question">
+<h1><%= @question.title %></h1>
+<ul>
+	<% @question.categories.each do |category| %>
+		<li><%= link_to category.text, category_path(category) %></li>
+	<% end %>
+</ul>
+<h4><%= link_to @question.user.username, user_path(@question.user) %></h4>
+<h3>Question:</h3>
+<p><%= @question.body %></p>
+</div>
+
+<div class="comments">
+	<h3>Comments</h3>
+	<ul>
+		<% @question.comments.each do |comment| %>
+			<li><%= comment.text %> - <%= link_to comment.user.username, user_path(comment.user) %></li>
+		<% end %>
+	</ul>
+	<%= render partial: 'comments/new', locals: { question_id: @question.id, answer_id: nil } %>
+</div>
+
+<div class="answers">
+	<%= link_to "Submit an Answer", new_question_answer_path(@question) %>
+	<h3>Answers</h3>
+	<ul>
+		<% @question.answers.each do |answer| %>
+			<li>
+			<% if answer.chosen %>
+				<h5>CHOSEN</h5>
+			<% end %>
+
+			<%= answer.text %> - <%= link_to answer.user.username, user_path(answer.user) %>
+			
+				<div class="comments">
+					<h5>Comments</h5>
+					<ul>
+						<% answer.comments.each do |comment| %>
+							<li><%= comment.text %> - <%= link_to comment.user.username, user_path(comment.user) %></li>
+						<% end %>
+					</ul>
+					<%= render partial: 'comments/new', locals: { answer_id: answer.id, question_id: answer.question } %>
+				</div>
+			
+			</li>
+
+		<% end %>
+	</ul>
+</div>
