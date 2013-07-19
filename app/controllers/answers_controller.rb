@@ -1,7 +1,10 @@
 class AnswersController < ApplicationController
 
-  before_filter :authenticate #before creating/updating/destroying
+  # before_filter :authenticate
+  # before_filter :authorize
+
   def new
+    @answer = Answer.new
   end
 
   def create
@@ -9,7 +12,7 @@ class AnswersController < ApplicationController
     @answer = question.answers.new(params[:answer])
 
     if @answer.save
-      redirect_to # question_url(@question)
+      redirect_to question_path(question)
     else
       render :new
     end
@@ -31,9 +34,10 @@ class AnswersController < ApplicationController
 
   def destroy
     answer = Answer.find(params[:id])
+    question = answer.question
     answer.destroy
 
-    redirect_to # back to the question
+    redirect_to question_path(question)
   end
 
 end

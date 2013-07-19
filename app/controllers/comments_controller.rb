@@ -1,24 +1,24 @@
 class CommentsController < ApplicationController
 
-  before_filter :authorize
+  # before_filter :authorize
 
   def new
     @comment = Comment.new
   end
 
   def create
-    if params[:question_id]
-      commentable = Question.find(params[:comment_id]) # put into helper method
-      url = commentable
-    elsif params[:answer_id]
-      commentable = Answer.find(params[:answer_id])
-      url = answer.question
+    @comment = Comment.new(:text => params[:comment][:text])
+
+    if params[:comment][:question_id]
+      @comment.commentable = Question.find(params[:comment][:question_id]) # put into helper method
+      question = @comment.commentable
+    elsif params[:comment][:answer_id]
+      @comment.commentable  = Answer.find(params[:comment][:answer_id])
+      question = @comment.commentable.question
     end
 
-    @comment = commentable.comments.new(params[:comment])
-
     if @comment.save
-      redirect_to question_url(url)
+      redirect_to question_url(question)
     else
       render :new, notice: "Your comment was invalid."
     end
