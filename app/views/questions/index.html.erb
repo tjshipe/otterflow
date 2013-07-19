@@ -4,15 +4,15 @@
 	<% @questions.each do |question|%>
 		<li class='questionListItem'>
 		  <div class='question'>
-        <span class='votes' id="<%= question.id %>"><span class='voteTotal'><%= question.sum  %></span>| <a href="#" class='upvote'><i class="icon-thumbs-up"></i></a> | <a href="#" class='downvote'><i class="icon-thumbs-down"></i></a></span>
+        <span class='votes' id="<%= question.id %>"><span class='voteTotal'><%= question.sum  %></span><a href="#" class='upvote'><i class="icon-thumbs-up"></i></a><a href="#" class='downvote'><i class="icon-thumbs-down"></i></a></span>
 				<%= link_to "#{question.title}", question_url(question) %><br>
 				<span class='details'><%= question.user.username%> | <%= question.created_at.strftime("%b %e, %l:%M %p") %></span>
-			</div>
-			<div class='categories'>
-        <% question.categories.each do |category| %>
-          <span class='category'><%= link_to category.text, category_url(category)%>
-          </span>
-        <% end %>
+				
+	        <% question.categories.each do |category| %>
+	          <span class='category'><%= link_to category.text, category_url(category)%>
+	          </span>
+	        <% end %>
+				
 			</div>
 		</li>
 	<% end %>
