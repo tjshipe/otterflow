@@ -24,13 +24,13 @@ end
 end
 
 30.times do
-  @vote = Vote.create(positive: true, user_id: (rand(10)+1))
+  @vote = Vote.create(value: [1,-1].sample, user_id: (rand(10)+1))
   @vote.voteable = @questions.sample
   @vote.save
 end
 
 30.times do
-  @vote = Vote.create(positive: true, user_id: (rand(10)+1))
+  @vote = Vote.create(value: [1,-1].sample, user_id: (rand(10)+1))
   @vote.voteable = @answers.sample
   @vote.save
 end

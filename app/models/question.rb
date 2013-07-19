@@ -9,4 +9,9 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :title
   validates_presence_of :body
+  def sum
+    sum = 0
+    self.votes.each {|vote| sum += vote.value}
+    sum
+  end
 end

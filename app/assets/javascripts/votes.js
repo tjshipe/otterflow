@@ -10,8 +10,7 @@ function vote(event){
     dataType: "json",
     data: {object_id: id, voteDirection: voteDirection, voteType: voteType},
     success: function(data, status, xhr) {
-
-      voteElement.children('.voteTotal').html(data.vote_count);
+      voteElement.siblings('.voteTotal').html(data.vote_count);
     },
     error: function() {
       alert('error');
@@ -21,5 +20,5 @@ function vote(event){
 
 
 $(document).ready(function(){
-  $('.votes').on('click', vote);
+  $('.votes a').on('click', vote);
 });

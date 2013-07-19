@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130717232455) do
   end
 
   create_table "votes", :force => true do |t|
-    t.boolean  "positive"
+    t.integer  "value"
     t.integer  "voteable_id"
     t.string   "voteable_type"
     t.integer  "user_id"
