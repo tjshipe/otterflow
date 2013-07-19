@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>Otterflow</h1>
+	<h1><%= link_to "Otterflow", root_path %></h1>
 	<% if signed_in?  %>
 		<div id='log-out'>
 			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
@@ -19,14 +19,8 @@
 		  <%= link_to "Sign up", new_user_path %>
 		</div>
 	<% end %>
-<%= yield %>
-  
-  <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
-  <% end %>
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
+
+	<%= render "shared/flash_messages" %>
 
   <%= yield %>
   
