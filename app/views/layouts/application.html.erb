@@ -7,7 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<h1>Otterflow</h1>
+	<% if signed_in?  %>
+		<div id='log-out'>
+			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
+		</div>
+	<% else %>
+		<div id='logButton'>
+			<%= link_to "Login", new_session_path %>
+		  <%= link_to "Sign up", new_user_path %>
+		</div>
+	<% end %>
 <%= yield %>
 
 </body>

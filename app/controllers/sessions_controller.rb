@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    sessions.clear
+  def logout
+    session.clear
     redirect_to root_url, notice: "Successfully logged out :)"
   end
 end
