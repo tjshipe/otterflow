@@ -8,6 +8,12 @@ class VotesController < ApplicationController
     # Need to set user_id to current user
     @vote = Vote.new(value: voteDirection, user_id: current_user.id)
 
+    if params[:voteType] == 'question'
+      @vote.voteable = Question.find(params[:object_id])
+    else
+      @vote.voteable = Answer.find(params[:object_id])
+    end
+
     if @vote.save
       if params[:voteType] == 'question'
         @vote.voteable = Question.find(params[:object_id])
