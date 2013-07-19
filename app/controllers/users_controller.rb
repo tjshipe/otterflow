@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :authorize, except: [:index, :show]
+	before_filter :authorize, except: [:index, :show, :new, :create]
 
 	def index
 		@users = Users.order_by_karma
@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(params[:user])
+		@user = User.new(username: params[:user][:username])
+		@user.password = params[:user][:password]
 		if @user.save
 			redirect_to root_url, notice: "You successfully created an account!"
 		else
