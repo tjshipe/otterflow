@@ -6,4 +6,10 @@ class Answer < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :text
+
+  def sum
+    sum = 0
+    self.votes.each {|vote| sum += vote.value}
+    sum
+  end
 end
