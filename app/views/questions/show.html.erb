@@ -17,7 +17,6 @@
 			<li><%= comment.text %></li>
 		<% end %>
 	</ul>
-	<% @answer = nil %>
 	<%= render partial: 'comments/new' %>
 </div>
 
@@ -32,8 +31,8 @@
 				<h5>CHOSEN</h5>
 			<% end %>
 
-			<%= answer.text %> 
-			
+			<%= answer.text %>
+
 				<div class="comments">
 					<h5>Comments</h5>
 					<ul>
@@ -44,7 +43,7 @@
 					<% @answer = answer %>
 					<%= render partial: 'comments/new' %>
 				</div>
-			
+
 			</li>
 
 		<% end %>

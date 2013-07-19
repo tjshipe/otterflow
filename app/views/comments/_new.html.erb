@@ -1,6 +1,6 @@
 <h6>Submit a Comment</h6>
 <%= form_for @comment do |f| %>
-	<% if @answer == nil %>
+	<% unless @answer %>
 		<%= f.hidden_field :question_id, :value => @question.id %>
 	<% else %>
 		<%= f.hidden_field :answer_id, :value => @answer.id %>
@@ -8,4 +8,3 @@
 	<%= f.text_area :text, size: "50x4" %>
 	<%= f.submit %>
 <% end %>
-  
