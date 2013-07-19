@@ -14,14 +14,16 @@
 	<h3>Comments</h3>
 	<ul>
 		<% @question.comments.each do |comment| %>
-			<li><%= comment.text %> - <%= link_to comment.user.username, user_path(comment.user) %></li>
+			<li><%= comment.text %></li>
 		<% end %>
 	</ul>
-	<%= render partial: 'comments/new', locals: { question_id: @question.id, answer_id: nil } %>
+	<% @answer = nil %>
+	<%= render partial: 'comments/new' %>
 </div>
 
 <div class="answers">
-	<%= render partial: 'answers/new' %>
+	<%= link_to "Submit an Answer", new_question_answer_path(@question.id) %>
+
 	<h3>Answers</h3>
 	<ul>
 		<% @question.answers.each do |answer| %>
@@ -30,16 +32,17 @@
 				<h5>CHOSEN</h5>
 			<% end %>
 
-			<%= answer.text %> - <%= link_to answer.user.username, user_path(answer.user) %>
+			<%= answer.text %> 
 			
 				<div class="comments">
 					<h5>Comments</h5>
 					<ul>
 						<% answer.comments.each do |comment| %>
-							<li><%= comment.text %> - <%= link_to comment.user.username, user_path(comment.user) %></li>
+							<li><%= comment.text %></li>
 						<% end %>
 					</ul>
-					<%= render partial: 'comments/new', locals: { answer_id: answer.id, question_id: answer.question } %>
+					<% @answer = answer %>
+					<%= render partial: 'comments/new' %>
 				</div>
 			
 			</li>
