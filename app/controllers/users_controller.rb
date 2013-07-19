@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :authorize, except: [:index, :show]
+	before_filter :authorize, except: [:index, :show, :new]
 
 	def index
 		@users = Users.order_by_karma
