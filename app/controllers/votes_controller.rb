@@ -23,7 +23,7 @@ class VotesController < ApplicationController
           redirect_to @vote.voteable.question
         end
         format.json do
-         
+          render json: {:vote_count => @vote.voteable.votes.count}
         end
       end
     else
