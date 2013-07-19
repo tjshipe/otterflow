@@ -19,14 +19,8 @@
 		  <%= link_to "Sign up", new_user_path %>
 		</div>
 	<% end %>
-<%= yield %>
-  
-  <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
-  <% end %>
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
+
+	<%= render "shared/flash_messages" %>
 
   <%= yield %>
   
