@@ -1,5 +1,6 @@
 <div class="question">
 <h1><%= @question.title %></h1>
+<span class='votes' id="<%= @question.id %>"><a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
 <ul>
 	<% @question.categories.each do |category| %>
 		<li><%= link_to category.text, category_path(category) %></li>
@@ -31,7 +32,7 @@
 			<% if answer.chosen %>
 				<h5>CHOSEN</h5>
 			<% end %>
-
+<span class='votes' id="<%= answer.id %>"><a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
 			<%= answer.text %> 
 			
 				<div class="comments">
