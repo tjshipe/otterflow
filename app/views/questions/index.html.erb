@@ -8,6 +8,7 @@
 	<% @questions.each do |question|%>
 		<li class='questionListItem'>
 		  <div class='question'>
+        <span class='votes' id="<%= question.id %>"><a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
 				<%= link_to "#{question.title}", question_url(question) %><br>
 				<span class='details'><%= question.user.username%> | <%= question.created_at%></span>
 			</div>
