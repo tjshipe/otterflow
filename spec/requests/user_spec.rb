@@ -29,8 +29,12 @@ describe 'User' do
   end
 
   context "on question page" do
-    it "sees a question title" do
-      click_link "#{@question.title}"
+    before do
+      visit question_url(@question)
+    end
+    it "sees question title and question body" do
+      page.should have_content "#{@question.title}"
+      page.should have_content "#{@question.body}"
     end
   end
 
