@@ -1,10 +1,12 @@
 10.times do
-	@user = User.create(username: Faker::Internet.email, password_hash: Faker::Lorem.words(num = 1))
+	@user = User.new(username: Faker::Internet.email)
+  @user.password = Faker::Lorem.words(num = 1)
+  @user.save
 	5.times do
 	  @user.questions << Question.create(title: Faker::Company.catch_phrase, body: Faker::Lorem.sentences(sentence_count = 3))
       3.times do
         Answer.create(user_id:@user.id, text: Faker::Lorem.sentences(sentence_count = 3), question_id: (rand(50)+1))
-      end	  
+      end
 	end
 end
 
