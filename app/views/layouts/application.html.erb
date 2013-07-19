@@ -2,13 +2,18 @@
 <html>
 <head>
   <title>Otterflow</title>
+  <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One|Oxygen:300,700,400' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="otter">
+		<%= image_tag "otter_header.png" %>
+	</div>
+	<div class="container">
+	<h1><%= link_to raw("<span id='left'>Otter</span><span id='right'>flow</span>"), root_path %></h1>
 
-	<h1><%= link_to "Otterflow", root_path %></h1>
 	<% if signed_in?  %>
 		<div id='log-out'>
 			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
@@ -23,6 +28,6 @@
 	<%= render "shared/flash_messages" %>
 
   <%= yield %>
-  
+  </div>	
 </body>
 </html>
