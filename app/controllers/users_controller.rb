@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 		@user = User.new(username: params[:user][:username])
 		@user.password = params[:user][:password]
 		if @user.save
+			session[:user_id] = @user.id
 			redirect_to root_url, notice: "You successfully created an account!"
 		else
 			render 'new', flash: "Error!"
