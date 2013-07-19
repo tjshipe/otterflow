@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>Otterflow</h1>
+	<h1><%= link_to "Otterflow", root_path %></h1>
 	<% if signed_in?  %>
 		<div id='log-out'>
 			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
