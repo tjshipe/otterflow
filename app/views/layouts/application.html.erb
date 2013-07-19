@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<h1>Otterflow</h1>
 	<% if signed_in?  %>
 		<div id='log-out'>
@@ -19,6 +20,15 @@
 		</div>
 	<% end %>
 <%= yield %>
+  
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
 
+  <%= yield %>
+  
 </body>
 </html>
