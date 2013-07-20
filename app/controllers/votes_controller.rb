@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
   def create
     input = params.clone
-    p input
     if input[:voteType] == 'question'
       input[:voteType] = 'Question'
     elsif input[:voteType] == 'answers'
