@@ -17,7 +17,7 @@
 	<h1><%= link_to raw("<span id='left'>Otter</span><span id='right'>flow</span>"), root_path %></h1>
 
 	<% if signed_in?  %>
-		<div id='log-out'>
+		<div id='logButton'>
 			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
 		</div>
 	<% else %>
