@@ -1,21 +1,32 @@
 <div class="question">
-<h1><%= @question.title %></h1>
-<span class='votes' id="<%= @question.id %>"><span class='voteTotal'><%= @question.sum  %></span>| <a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
-<ul>
-	<% @question.categories.each do |category| %>
-		<li><%= link_to category.text, category_path(category) %></li>
+	<h1><%= @question.title %></h1>
+
+	<% votes = Hash[*@question.votes.map {|vote| [vote.user_id, vote.value] }.flatten] %>
+
+	<% case %>
+	<% when votes.keys.include?(current_user.id) && votes[current_user.id] == 1 %>
+	<%= render partial: 'voting', locals: { question: @question, vote: 1 } %>
+	<% when votes.keys.include?(current_user.id) && votes[current_user.id] == -1 %>
+	<%= render partial: 'voting', locals: { question: @question, vote: -1 } %>
+	<% else %>
+	<%= render partial: 'voting', locals: { question: @question, vote: 0 } %>
 	<% end %>
-</ul>
-<h4><%= link_to @question.user.username, user_path(@question.user) %></h4>
-<h3>Question:</h3>
-<p><%= @question.body %></p>
+
+	<ul>
+		<% @question.categories.each do |category| %>
+		<li><%= link_to category.text, category_path(category) %></li>
+		<% end %>
+	</ul>
+	<h4><%= link_to @question.user.username, user_path(@question.user) %></h4>
+	<h3>Question:</h3>
+	<p><%= @question.body %></p>
 </div>
 
 <div class="comments">
 	<h3>Comments</h3>
 	<ul>
 		<% @question.comments.each do |comment| %>
-			<li><%= comment.text %></li>
+		<li><%= comment.text %></li>
 		<% end %>
 	</ul>
 	<%= render partial: 'comments/new' %>
@@ -27,27 +38,27 @@
 	<h3>Answers</h3>
 	<ul>
 		<% @question.answers.each do |answer| %>
-			<li>
+		<li>
 			<% if answer.chosen %>
-				<h5>CHOSEN</h5>
+			<h5>CHOSEN</h5>
 			<% end %>
 
-<span class='votes' id="<%= answer.id %>"><span class='voteTotal'><%= answer.sum  %></span>| <a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
+			<span class='votes' id="<%= answer.id %>"><span class='voteTotal'><%= answer.sum  %></span>| <a href="#" class='upvote'>Up</a> | <a href="#" class='downvote'>Down</a></span>
 			<%= answer.text %> 
 			
 
-				<div class="comments">
-					<h5>Comments</h5>
-					<ul>
-						<% answer.comments.each do |comment| %>
-							<li><%= comment.text %></li>
-						<% end %>
-					</ul>
-					<% @answer = answer %>
-					<%= render partial: 'comments/new' %>
-				</div>
+			<div class="comments">
+				<h5>Comments</h5>
+				<ul>
+					<% answer.comments.each do |comment| %>
+					<li><%= comment.text %></li>
+					<% end %>
+				</ul>
+				<% @answer = answer %>
+				<%= render partial: 'comments/new' %>
+			</div>
 
-			</li>
+		</li>
 
 		<% end %>
 	</ul>
