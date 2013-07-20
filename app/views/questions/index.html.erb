@@ -30,27 +30,3 @@
 				</div>
 			</span>
 	<% end %>
-
-<%= render 'shared/nav' %>
-
-<div id='questionDiv'>
-	<h1><%= @title %></h1>
-	<ul id='questionList'>
-	<% @questions.each do |question|%>
-		<li class='questionListItem'>
-		  <div class='question'>
-
-				<%= link_to "#{question.title}", question_url(question) %><br>
-
-				<span class='details'>
-					<%= link_to question.user.username, user_url(question.user) %>| <%= question.created_at.strftime("%b %e, %l:%M %p") %>
-				
-	        <% question.categories.each do |category| %>
-	          <span class='category'><%= link_to category.text, category_url(category)%></span>
-	        <% end %>
-				</span>
-			</div>
-		</li>
-	<% end %>
-	</ul>		
-</div>
