@@ -4,14 +4,25 @@
 	<% @questions.each do |question|%>
 		<li class='questionListItem'>
 		  <div class='question'>
-        <span class='votes' id="<%= question.id %>"><span class='voteTotal'><%= question.sum  %></span><a href="#" class='upvote'><i class="icon-thumbs-up"></i></a><a href="#" class='downvote'><i class="icon-thumbs-down"></i></a></span>
+
+		  	<% votes = Hash[*question.votes.map {|vote| [vote.user_id, vote.value] }.flatten] %>
+				
+				<% case %>
+				<% when votes.keys.include?(current_user.id) && votes[current_user.id] == 1 %>
+					<%= render partial: 'voting', locals: { question: question, vote: 1 } %>
+				<% when votes.keys.include?(current_user.id) && votes[current_user.id] == -1 %>
+					<%= render partial: 'voting', locals: { question: question, vote: -1 } %>
+				<% else %>
+					<%= render partial: 'voting', locals: { question: question, vote: 0 } %>
+				<% end %>
+
 				<%= link_to "#{question.title}", question_url(question) %><br>
+
 				<span class='details'>
 					<%= link_to question.user.username, user_url(question.user) %>| <%= question.created_at.strftime("%b %e, %l:%M %p") %>
 				
 	        <% question.categories.each do |category| %>
-	          <span class='category'><%= link_to category.text, category_url(category)%>
-	          </span>
+	          <span class='category'><%= link_to category.text, category_url(category)%></span>
 	        <% end %>
 				</span>
 			</div>
