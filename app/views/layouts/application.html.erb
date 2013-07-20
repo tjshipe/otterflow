@@ -3,6 +3,8 @@
 <head>
   <title>Otterflow</title>
   <link href='http://fonts.googleapis.com/css?family=Racing+Sans+One|Oxygen:300,700,400' rel='stylesheet' type='text/css'>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -15,7 +17,7 @@
 	<h1><%= link_to raw("<span id='left'>Otter</span><span id='right'>flow</span>"), root_path %></h1>
 
 	<% if signed_in?  %>
-		<div id='log-out'>
+		<div id='logButton'>
 			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
 		</div>
 	<% else %>

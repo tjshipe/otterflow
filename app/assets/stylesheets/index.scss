@@ -3,66 +3,108 @@ $olive: #756E0C;
 $white: #D2D9D9;
 $blue: #1A3575;
 $light-blue: #748C9E;
+$yellow: #C18A04;
+$black: #333;
 
 $title-font: 'Racing Sans One', cursive;
 $body-font: 'Oxygen', sans-serif;
 
-/*------frontpage-------*/
+/*------global----------*/
 
 body {
 	background: $white;
 	font-family: $body-font;
+	font-size: medium;
+	color: $black;
 }
-
-div.otter{
-	position: fixed;
-	left: 40px;
-	bottom: -5px;
-}
-
-div.container {
-	width: 600px;
-	margin: 0px auto;
-
-}
-
 a {
-	color: $light-blue;
+	color: $black;
 	text-decoration: none;
 }
 a:hover {
-	color: $olive;
+	color: $yellow;
+	text-decoration: none;
 }
-
 ul {
 	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
-
 textarea {
 	border: none;
 	border-radius: 6px; 
 }
-
 input[type='submit'] {
 	border: none;
 	background: $light-blue;
 	border-radius: 4px;
 }
 
+/*------frontpage-------*/
+
+div.otter{
+	position: fixed;
+	left: 40px;
+	bottom: -5px;
+}
+div.container {
+	width: 800px;
+	margin: 40px auto auto 300px;
+}
 h1 a {
 	font-family: $title-font;
-	font-size: 48pt;
+	font-size: 64pt;
 	text-decoration: none;
 }
-
 h1 span#left {
 	color: $green;
 }
-
 h1 span#right{
 	color: $blue;
 }
+#logButton {
+	font-size: x-large;
+	padding: 8px 0;
+	margin: 0 0 64px 20px;
+}
 
-h1 a:hover {
-	text-decoration: underline;
+/*------questions index-----*/
+.question span, a {
+	display: inline-block;
+	padding: 4px 8px;
+}
+span.votes {
+	padding: 0;
+}
+#questionDiv {
+	padding-left: 20px;
+}
+.questionListItem {
+	padding: 12px 0;
+}
+.question {
+	font-size: x-large;
+}
+.voteTotal {
+	font-size: x-large;
+	width: 20px;
+	text-align: center;
+}
+.details, .details a, .category a {
+	font-size: medium;
+	color: $light-blue;
+}
+.details a:hover {
+	color: $yellow;
+}
+span.category {
+	font-size: medium;
+	padding: 0;
+}
+.category a {
+	border: 1px solid $light-blue;
+}
+.category a:hover {
+	border: 1px solid $yellow;
+	color: $yellow;
 }
