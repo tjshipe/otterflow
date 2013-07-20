@@ -27,14 +27,6 @@
 		</div>
 	<% end %>
 
-  <div class="nav">
-    <%= link_to "Top", root_path %>
-    <%= link_to "New", new_path %>
-    <%= link_to "Controversial", controversial_path %>
-    <%= link_to "Unanswered", unanswered_path %>
-    <%= link_to "All Users", users_path %>
-  </div>
-
 	<%= render "shared/flash_messages" %>
 
   <%= yield %>
