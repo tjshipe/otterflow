@@ -27,4 +27,9 @@ class User < ActiveRecord::Base
   def self.order_by_karma
   	User.all.sort_by {|user| user.karma_sum }.reverse
   end
+
+  def avatar
+    gravatar_id = Digest::MD5.hexdigest(username)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=100"
+  end
 end
