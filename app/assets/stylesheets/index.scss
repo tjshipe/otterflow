@@ -21,10 +21,10 @@ body {
 a {
 	color: $black;
 	text-decoration: none;
-}
-a:hover {
-	color: $yellow;
-	text-decoration: none;
+	&:hover {
+		color: $yellow;
+		text-decoration: none;
+	}
 }
 ul {
 	list-style-type: none;
@@ -35,16 +35,19 @@ textarea {
 	border: none;
 	border-radius: 6px; 
 }
-input[type='submit'] {
+@mixin button {
 	border: none;
 	background: $light-blue;
 	border-radius: 4px;
 	padding: 4px 8px;
 	color: white;
 	letter-spacing: 0.1em;
+	&:hover {
+		background: $yellow;
+	}
 }
-input[type='submit']:hover {
-	background: $yellow;
+input[type='submit'] {
+	@include button;
 }
 
 /*------frontpage-------*/
@@ -78,9 +81,9 @@ h1 span#right{
 .new_user, .new_session {
 	margin-left: 20px;
 	padding: 4px 8px;
-}
-.new_user input, .new_session input {
-	display: block;
+	input {
+		display: block
+	}
 }
 
 /*------questions index-----*/
@@ -116,13 +119,13 @@ span.details {
 span.category {
 	font-size: medium;
 	padding: 0;
-}
-.category a {
-	border: 1px solid $light-blue;
-	padding: 2px 6px;
-	margin: 2px 0;
-}
-.category a:hover {
-	border: 1px solid $yellow;
-	color: $yellow;
+	a {
+		border: 1px solid $light-blue;
+		padding: 2px 6px;
+		margin: 2px 0;
+		&:hover {
+			border: 1px solid $yellow;
+			color: $yellow;
+		}
+	}
 }
