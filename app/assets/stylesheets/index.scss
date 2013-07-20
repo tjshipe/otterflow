@@ -55,7 +55,7 @@ div.otter{
 	bottom: -5px;
 }
 div.container {
-	width: 800px;
+	width: 65%;
 	margin: 40px auto auto 300px;
 }
 h1 a {
@@ -87,7 +87,7 @@ h1 span#right{
 /*------questions index-----*/
 .question span, a {
 	display: inline-block;
-	padding: 4px 8px;
+	padding: 4px 8px 4px 0;
 }
 span.votes {
 	padding: 0;
@@ -106,6 +106,9 @@ span.votes {
 	width: 20px;
 	text-align: center;
 }
+span.details {
+	padding: 0;
+}
 .details, .details a, .category a {
 	font-size: medium;
 	color: $light-blue;
@@ -119,6 +122,8 @@ span.category {
 }
 .category a {
 	border: 1px solid $light-blue;
+	padding: 2px 6px;
+	margin: 2px 0;
 }
 .category a:hover {
 	border: 1px solid $yellow;
