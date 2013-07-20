@@ -1,15 +1,17 @@
 <div class="question">
 	<h1><%= @question.title %></h1>
+	
+	<% if signed_in? %>
+		<% votes = Hash[*@question.votes.map {|vote| [vote.user_id, vote.value] }.flatten] %>
 
-	<% votes = Hash[*@question.votes.map {|vote| [vote.user_id, vote.value] }.flatten] %>
-
-	<% case %>
-	<% when votes.keys.include?(current_user.id) && votes[current_user.id] == 1 %>
-	<%= render partial: 'voting', locals: { question: @question, vote: 1 } %>
-	<% when votes.keys.include?(current_user.id) && votes[current_user.id] == -1 %>
-	<%= render partial: 'voting', locals: { question: @question, vote: -1 } %>
-	<% else %>
-	<%= render partial: 'voting', locals: { question: @question, vote: 0 } %>
+		<% case %>
+		<% when votes.keys.include?(current_user.id) && votes[current_user.id] == 1 %>
+		<%= render partial: 'voting', locals: { question: @question, vote: 1 } %>
+		<% when votes.keys.include?(current_user.id) && votes[current_user.id] == -1 %>
+		<%= render partial: 'voting', locals: { question: @question, vote: -1 } %>
+		<% else %>
+		<%= render partial: 'voting', locals: { question: @question, vote: 0 } %>
+		<% end %>
 	<% end %>
 
 	<ul>
