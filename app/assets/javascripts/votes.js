@@ -14,7 +14,7 @@ function vote(event){
       updateIconColor(voteElement, voteDirection);
     },
     error: function() {
-      alert('error');
+      alert('Something went wrong, are you logged in?');
     }
   });
 };

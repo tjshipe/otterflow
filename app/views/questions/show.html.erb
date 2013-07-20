@@ -12,6 +12,8 @@
 		<% else %>
 		<%= render partial: 'voting', locals: { question: @question, vote: 0 } %>
 		<% end %>
+	<% else %>
+		<%= render partial: 'voting', locals: { question: @question, vote: 0 } %>
 	<% end %>
 
 	<ul>
