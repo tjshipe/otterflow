@@ -1,3 +1,5 @@
+<%= render 'shared/nav' %>
+
 <% @users.each do |user| %>
   <%= link_to user.username, user_path(user) %>: <%= user.karma_sum %><br>
 <% end %>
