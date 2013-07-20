@@ -25,6 +25,6 @@ class User < ActiveRecord::Base
   end
 
   def self.order_by_karma
-  	
+  	User.all.sort_by {|user| user.karma_sum }.reverse
   end
 end
