@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_filter :authorize, :only => [:edit, :update]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.sort_by {|question| question.sum }.reverse
   end
 
   def show
