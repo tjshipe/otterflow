@@ -10,29 +10,32 @@ $title-font: 'Racing Sans One', cursive;
 $body-font: 'Oxygen', sans-serif;
 
 /*-----question-----*/
-.question h1 {
-	margin-bottom: 8px;
-}
 .question p {
 	margin: 8px 0;
 	line-height: 1.3em;
 }
+
+/*-----comments-----*/
+.new_comment {
+	margin-bottom: 12px;
+}
 .new_comment textarea {
 	width: 50%;
-	height: 2em;
-	border: 1px solid $light-blue;
-	margin: 8px 0;
+	height: 1.6em;
+	margin: 12px 0 12px 31%;
+	padding: 4px;
 }
 .new_comment input[type="submit"] {
-	background: none;
-	color: $light-blue;
+	padding: 4px;
+	&:hover {
+		color: $yellow;
+	}
 }
 /*------answers-----*/
 div.create-answer {
 	border: none;
 	background: $light-blue;
 	border-radius: 4px;
-	padding: 4px 8px;
 	color: white;
 	letter-spacing: 0.1em;
 	font-size: large;
@@ -43,7 +46,7 @@ div.create-answer {
 }
 .create-answer a {
 	color: white;
-	padding: 2px 0;
+	padding: 8px 72% 8px 16px;
 }
 .votes {
 	font-size: x-large;
@@ -55,4 +58,7 @@ div.create-answer {
 .answers li {
 	background: white;
 	padding: 12px 18px;
+}
+.answer-text {
+	padding: 8px 0;
 }
