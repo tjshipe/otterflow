@@ -1,0 +1,5 @@
+<span class='votes' id="<%= question.id %>">
+  <span class='voteTotal'><%= question.sum  %></span>
+  <a href="#" class="<%= vote == 1 ? "upvote upvoted" : "upvote" %>"><i class="icon-thumbs-up"></i></a>
+  <a href="#" class="<%= vote == -1 ? "downvote downvoted" : "downvote" %>"><i class="icon-thumbs-down"></i></a>
+</span>
