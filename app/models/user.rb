@@ -20,7 +20,11 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def karma_sum
+    self.questions.inject(0) {|sum, question| sum + question.sum } + self.answers.inject(0) {|sum, answer| sum + answer.sum }
+  end
+
   def self.order_by_karma
-  	# pending
+  	
   end
 end
