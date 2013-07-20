@@ -3,7 +3,26 @@ class QuestionsController < ApplicationController
   before_filter :authorize, :only => [:edit, :update]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.sort_by {|question| question.sum }.reverse
+    @title = "Top Questions"
+  end
+
+  def new_posts
+    @questions = Question.all.sort_by {|question| question.created_at }.reverse
+    @title = "New Questions"
+    render :index
+  end
+
+  def controversial
+    @questions = Question.all.sort_by {|question| question.answers.count }.reverse
+    @title = "Controversial Questions"
+    render :index
+  end
+
+  def unanswered
+    @questions = Question.select {|question| question.answers.count == 0 }.sort_by {|question| question.created_at }.reverse
+    @title = "Unanswered Questions"
+    render :index
   end
 
   def show
