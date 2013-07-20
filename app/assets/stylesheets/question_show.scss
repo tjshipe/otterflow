@@ -1,0 +1,58 @@
+$green: #004A37;
+$olive: #756E0C;
+$white: #D2D9D9;
+$blue: #1A3575;
+$light-blue: #748C9E;
+$yellow: #C18A04;
+$black: #333;
+
+$title-font: 'Racing Sans One', cursive;
+$body-font: 'Oxygen', sans-serif;
+
+/*-----question-----*/
+.question h1 {
+	margin-bottom: 8px;
+}
+.question p {
+	margin: 8px 0;
+	line-height: 1.3em;
+}
+.new_comment textarea {
+	width: 50%;
+	height: 2em;
+	border: 1px solid $light-blue;
+	margin: 8px 0;
+}
+.new_comment input[type="submit"] {
+	background: none;
+	color: $light-blue;
+}
+/*------answers-----*/
+div.create-answer {
+	border: none;
+	background: $light-blue;
+	border-radius: 4px;
+	padding: 4px 8px;
+	color: white;
+	letter-spacing: 0.1em;
+	font-size: large;
+	margin: 16px 0;
+	&:hover {
+		background: $yellow;
+	}
+}
+.create-answer a {
+	color: white;
+	padding: 2px 0;
+}
+.votes {
+	font-size: x-large;
+}
+.voteTotal {
+	padding-left: 0;
+	padding-right: 12px;
+}
+.answers li {
+	background: white;
+	padding: 12px 18px;
+}
