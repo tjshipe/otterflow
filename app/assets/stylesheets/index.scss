@@ -55,7 +55,6 @@ div.otter{
 	bottom: -5px;
 }
 div.container {
-	width: 65%;
 	margin: 40px auto auto 300px;
 }
 h1 a {
@@ -92,18 +91,16 @@ h1 span#right{
 span.votes {
 	padding: 0;
 }
-#questionDiv {
+div#questions {
 	padding-left: 20px;
 }
-.questionListItem {
-	padding: 12px 0;
-}
 .question {
+	padding: 12px 0;
 	font-size: x-large;
 }
 .voteTotal {
 	font-size: x-large;
-	width: 20px;
+	width: 30px;
 	text-align: center;
 }
 span.details {
