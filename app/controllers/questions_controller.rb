@@ -4,6 +4,19 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.sort_by {|question| question.sum }.reverse
+    @title = "Top Posts"
+  end
+
+  def new_posts
+    @questions = Question.all.sort_by {|question| question.created_at }.reverse
+    @title = "New Posts"
+    render :index
+  end
+
+  def controversial
+    @questions = Question.all.sort_by {|question| question.answers.count }.reverse
+    @title = "Controversial Posts"
+    render :index
   end
 
   def show
