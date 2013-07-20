@@ -58,7 +58,8 @@ div.otter{
 	bottom: -5px;
 }
 div.container {
-	margin: 40px auto auto 300px;
+	width: 52%;
+	margin: 40px auto auto 340px;
 }
 h1 a {
 	font-family: $title-font;
@@ -98,8 +99,13 @@ div#questions {
 	padding-left: 20px;
 }
 .question {
-	padding: 12px 0;
+	padding: 12px 18px;
 	font-size: x-large;
+	background: white;
+	line-height: 1.2em;
+	a {
+		display: inline;
+	}
 }
 .voteTotal {
 	font-size: x-large;
