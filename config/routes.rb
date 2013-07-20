@@ -17,4 +17,5 @@ Otterflow::Application.routes.draw do
 
   match 'new', to: 'questions#new_posts'
   match 'controversial', to: 'questions#controversial'
+  match 'unanswered', to: 'questions#unanswered'
 end
