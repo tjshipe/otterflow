@@ -16,6 +16,7 @@ body {
 	font-family: $body-font;
 	font-size: medium;
 	color: $black;
+	letter-spacing: 0.1em;
 }
 a {
 	color: $black;
@@ -38,6 +39,12 @@ input[type='submit'] {
 	border: none;
 	background: $light-blue;
 	border-radius: 4px;
+	padding: 4px 8px;
+	color: white;
+	letter-spacing: 0.1em;
+}
+input[type='submit']:hover {
+	background: $yellow;
 }
 
 /*------frontpage-------*/
@@ -66,6 +73,15 @@ h1 span#right{
 	font-size: x-large;
 	padding: 8px 0;
 	margin: 0 0 64px 20px;
+}
+
+/*------login & signup------*/
+.new_user, .new_session {
+	margin-left: 20px;
+	padding: 4px 8px;
+}
+.new_user input, .new_session input {
+	display: block;
 }
 
 /*------questions index-----*/
