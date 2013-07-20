@@ -14,4 +14,8 @@ Otterflow::Application.routes.draw do
   resources :votes, :only => [:create, :destroy] 
 
   root to: 'questions#index'
+
+  match 'new', to: 'questions#new_posts'
+  match 'controversial', to: 'questions#controversial'
+  match 'unanswered', to: 'questions#unanswered'
 end

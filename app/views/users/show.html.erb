@@ -1,13 +1,15 @@
+<%= link_to "< All Users", users_path %>
+
+<div class="avatar">
+  <%= image_tag @user.avatar %>
+</div>
+
 <div class="user_name">
   <h1><%= @user.username %></h1>
 </div>
 
 <div class="user_bio">
-  Photo: <%= @user.photo %>
-  <br />
-  Description: <%= @user.description %>
-  <br />
-  User "photo" and "description" goes here!
+  <h3>Karma: <%= @user.karma_sum %></h3>
 </div>
 <div class="user_content">
   <div class="user_questions">

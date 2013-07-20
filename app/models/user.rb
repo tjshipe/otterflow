@@ -20,7 +20,16 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def karma_sum
+    self.questions.inject(0) {|sum, question| sum + question.sum } + self.answers.inject(0) {|sum, answer| sum + answer.sum }
+  end
+
   def self.order_by_karma
-  	# pending
+  	User.all.sort_by {|user| user.karma_sum }.reverse
+  end
+
+  def avatar
+    gravatar_id = Digest::MD5.hexdigest(username)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=100"
   end
 end
