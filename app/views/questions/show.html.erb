@@ -27,7 +27,7 @@
 <div class="comments">
 	<ul>
 		<% @question.comments.each do |comment| %>
-		<li><%= comment.text %></li>
+		<li><%= comment.text %> - <%= comment.user %>| <%= comment.created_at.strftime("%b %e, %l:%M %p") %></li>
 		<% end %>
 	</ul>
 	<%= render partial: 'comments/new' %>
