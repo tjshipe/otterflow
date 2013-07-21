@@ -44,13 +44,14 @@ div.create-answer {
 	letter-spacing: 0.1em;
 	font-size: large;
 	margin: 16px 0;
+	width: 200px;
 	&:hover {
 		background: $yellow;
 	}
 }
 .create-answer a {
 	color: white;
-	padding: 8px 72% 8px 16px;
+	padding: 8px 16px;
 }
 .votes {
 	font-size: x-large;
