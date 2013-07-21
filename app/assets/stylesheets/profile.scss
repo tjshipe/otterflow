@@ -1,0 +1,54 @@
+$green: #004A37;
+$olive: #756E0C;
+$white: #D2D9D9;
+$blue: #1A3575;
+$light-blue: #748C9E;
+$yellow: #C18A04;
+$black: #333;
+
+$title-font: 'Racing Sans One', cursive;
+$body-font: 'Oxygen', sans-serif;
+
+
+
+.user_name > h1 {
+  border-bottom: 1px solid gray;
+}
+
+/*-----tabs-----*/
+.tab {
+    display: none;
+}
+.tabs {
+    float: left;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    margin-bottom: 16px;
+}
+.tabs li {
+    float: left;
+    margin-right: 16px;
+    padding: 10px 15px;
+    height: 30px;
+    line-height: 30px;
+}
+.tabs li a {
+    color: #666;
+    text-decoration: none;
+}
+
+.tabs li.active {
+    border: 1px solid gray;
+    border-bottom: 1px solid $white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-bottom: -1px;
+    height: 31px;
+    padding: 9px 14px;
+}
+
+.tabs li.active a {
+    color: black;
+    text-decoration: none;
+    border-bottom: none;
+}
