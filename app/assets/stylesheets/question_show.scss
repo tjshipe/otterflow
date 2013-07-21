@@ -31,6 +31,10 @@ $body-font: 'Oxygen', sans-serif;
 		color: $yellow;
 	}
 }
+.comments li {
+	padding: 2px 18px;
+	border-top: 1px solid $green;
+}
 /*------answers-----*/
 div.create-answer {
 	border: none;
