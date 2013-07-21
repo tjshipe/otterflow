@@ -1,3 +1,6 @@
 <% @users.each do |user| %>
-  <%= link_to user.username, user_path(user) %>: <%= user.karma_sum %><br>
+	<div class="user-stats">
+  <%= link_to user.username, user_path(user) %>
+	<%= pluralize(user.karma_sum, "vote") %>
+  </div>
 <% end %>
