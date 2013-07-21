@@ -33,7 +33,7 @@ ul {
 }
 textarea {
 	border: none;
-	border-radius: 6px; 
+	border-radius: 6px;
 }
 @mixin button {
 	border: none;
@@ -58,8 +58,8 @@ div.otter{
 	bottom: -5px;
 }
 div.container {
-	width: 52%;
-	margin: 40px auto auto 340px;
+	width: 55%;
+	margin: 40px auto 20px 340px;
 }
 h1 a {
 	font-family: $title-font;
@@ -75,13 +75,11 @@ h1 span#right{
 #logButton {
 	font-size: x-large;
 	padding: 8px 0;
-	margin: 0 0 64px 20px;
+	margin: 0 0 20px 0;
 }
 
 /*------login & signup------*/
 .new_user, .new_session {
-	margin-left: 20px;
-	padding: 4px 8px;
 	input {
 		display: block
 	}
@@ -96,7 +94,7 @@ span.votes {
 	padding: 0;
 }
 div#questions {
-	padding-left: 20px;
+	padding-left: 0px;
 }
 .question {
 	padding: 12px 18px;
