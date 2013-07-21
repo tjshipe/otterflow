@@ -40,7 +40,7 @@
 		<% @question.answers.each do |answer| %>
 
 		<li>
-			<div class="answer-votes">
+			<div class="answer">
 				<% if answer.chosen %>
 				<h5><i class="icon-check"></i></h5>
 				<% end %>
@@ -49,9 +49,7 @@
 				<span class='details'>
 					<%= link_to answer.user.username, user_url(answer.user) %>| <%= answer.created_at.strftime("%b %e, %l:%M %p") %>
 				</span>
-			</div>
 
-			<div class="answer-text">
 				<%= answer.text %>
 			</div>
 		</li>
