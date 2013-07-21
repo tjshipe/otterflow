@@ -33,7 +33,7 @@ ul {
 }
 textarea {
 	border: none;
-	border-radius: 6px; 
+	border-radius: 6px;
 }
 @mixin button {
 	border: none;
@@ -75,7 +75,7 @@ h1 span#right{
 #logButton {
 	font-size: x-large;
 	padding: 8px 0;
-	margin: 0 0 64px 20px;
+	margin: 0 0 64px 0px;
 }
 
 /*------login & signup------*/
@@ -96,7 +96,7 @@ span.votes {
 	padding: 0;
 }
 div#questions {
-	padding-left: 20px;
+	padding-left: 0px;
 }
 .question {
 	padding: 12px 18px;
