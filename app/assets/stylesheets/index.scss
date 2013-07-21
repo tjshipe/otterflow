@@ -59,7 +59,7 @@ div.otter{
 }
 div.container {
 	width: 52%;
-	margin: 40px auto auto 340px;
+	margin: 40px auto 20px 340px;
 }
 h1 a {
 	font-family: $title-font;
@@ -75,13 +75,11 @@ h1 span#right{
 #logButton {
 	font-size: x-large;
 	padding: 8px 0;
-	margin: 0 0 64px 0px;
+	margin: 0 0 20px 0;
 }
 
 /*------login & signup------*/
 .new_user, .new_session {
-	margin-left: 20px;
-	padding: 4px 8px;
 	input {
 		display: block
 	}
