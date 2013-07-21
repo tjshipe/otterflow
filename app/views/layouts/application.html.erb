@@ -15,23 +15,12 @@
 	</div>
 	<div class="container">
 	<h1><%= link_to raw("<span id='left'>Otter</span><span id='right'>flow</span>"), root_path %></h1>
-  
-  <%= render 'shared/nav' %>
 
-	<% if signed_in?  %>
-		<div id='logButton'>
-			<%= link_to "Log Out", logout_sessions_path, method: "delete" %>
-		</div>
-	<% else %>
-		<div id='logButton'>
-			<%= link_to "Log in", new_session_path %>
-		  <%= link_to "Sign up", new_user_path %>
-		</div>
-	<% end %>
+  <%= render 'shared/nav' %>
 
 	<%= render "shared/flash_messages" %>
 
   <%= yield %>
-  </div>	
+  </div>
 </body>
 </html>

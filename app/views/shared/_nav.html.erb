@@ -7,7 +7,10 @@
   <% if signed_in? %>
     <%= link_to "Ask a Question", new_question_path %>
     <%= link_to "My Profile", user_path(current_user) %>
+    <%= link_to "Log Out", logout_sessions_path, method: "delete" %>
   <% else %>
     <%= link_to "Ask a Question", new_session_path %>
+    <%= link_to "Log in", new_session_path %>
+    <%= link_to "Sign up", new_user_path %>
   <% end %>
 </div>
