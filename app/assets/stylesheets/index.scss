@@ -145,9 +145,9 @@ span.category {
 /* User profile page */
 
 .avatar {
-	position: absolute;
+	float: right;
+	margin-right: 15px;
 	margin-top: 10px;
-	margin-left: 700px;
 }
 
 .user_bio {
